@@ -1,4 +1,4 @@
-![Package and release](https://github.com/trumpetx/mailrobot/workflows/Package%20and%20release/badge.svg)
+![Package and release](https://github.com/trumpetx/SimpleChatCleaner/workflows/Package%20and%20release/badge.svg)
 <pre>
 Filter that spam!  Simple Chat Cleaner filters out unwated chat messages from specific or all channels!
 
