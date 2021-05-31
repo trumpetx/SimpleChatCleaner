@@ -1,0 +1,18 @@
+## Interface: 20501
+## Notes: A simple, keyword-based, chat filter
+## Title: SimpleChatCleaner
+## Author: TrumpetX
+## Version: 1.0.0
+## SavedVariables: SimpleChatCleanerDB
+## Interface-Classic: 11306
+## Interface-BCC: 20501
+## X-Credits: Inspired by the abandoned CChatCleaner project
+## X-Category: Chat/Communication
+## X-License: Apache-2.0
+## X-Localizations: enUS
+## X-Curse-Project-ID:
+## X-WoWI-ID:
+## X-Wago-ID:
+SimpleChatCleaner.xml
+locales.xml
+SimpleChatCleaner.lua
