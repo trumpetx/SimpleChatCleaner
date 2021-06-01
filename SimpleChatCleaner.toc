@@ -2,7 +2,7 @@
 ## Notes: A simple, keyword-based, chat filter
 ## Title: SimpleChatCleaner
 ## Author: TrumpetX
-## Version: 1.0.0
+## Version: 1.1.0
 ## SavedVariables: SimpleChatCleanerDB
 ## Interface-Classic: 11307
 ## Interface-BCC: 20501

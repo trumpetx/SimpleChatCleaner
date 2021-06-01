@@ -12,8 +12,8 @@ L["Match Whole Words"] = true
 L["Filter by the full word only instead of partial matches"] = true
 L["Filter Friendly"] = true
 L["Filter friends and guild members"] = true
-L["AddonEnabled"] = function(X,Y)
-	return 'version ' .. X .. ' by |cFF00FF00' .. Y .. '|r loaded'
+L["AddonEnabled"] = function(X,Y, cmd)
+	return 'version ' .. X .. ' by |cFF00FF00' .. Y .. '|r loaded. |cFF00FF00 /' .. cmd .. '|r to configure.'
 end
 L["SessionCount"] = function(ct)
 	return ct .. " messages blocked this session"

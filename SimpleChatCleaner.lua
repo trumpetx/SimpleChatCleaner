@@ -228,6 +228,8 @@ function SCC:ValidateAdd()
 end
 
 function SCC:StringSearch(msg, kw)
+  kw = kw:lower()
+  msg = msg:lower()
 	-- special: check for ecncapsulating symbols that exist around the word (like <GUILD NAMES>)...
 	local encapsulated_word =
 		(kw:sub(1, 1) == "<" or kw:sub(1, 1) == "{" or kw:sub(1, 1) == "[" or kw:sub(1, 1) == "(") and
@@ -244,7 +246,7 @@ function SCC:OnInitialize()
 end
 
 function SCC:OnEnable()
-  self:Print(L["AddonEnabled"](GetAddOnMetadata("SimpleChatCleaner", "Version"), GetAddOnMetadata("SimpleChatCleaner", "Author")))
+  self:Print(L["AddonEnabled"](GetAddOnMetadata("SimpleChatCleaner", "Version"), GetAddOnMetadata("SimpleChatCleaner", "Author"), L["scc"]))
   self.firstOpen = true
   LibStub("AceConfig-3.0"):RegisterOptionsTable("SimpleChatCleaner", options)
   self.optionsFrame = LibStub("AceConfigDialog-3.0"):AddToBlizOptions("SimpleChatCleaner", L["Simple Chat Cleaner"])
@@ -386,15 +388,13 @@ function SCC:Filter(msg,player,flag,lineId,guid)
   local trimmedPlayer = Ambiguate(player, "none")
   if trimmedPlayer == UnitName("player") then return end
 
-  local lowMsg = msg:lower()
-
   if not self.db.profile.filterFriendly and self:IsFriendly(trimmedPlayer, flag, lineId, guid) then return end
 
   local matchString = ""
   local matchFilterOne = filterOneCount == 0
   for i=1, #self.db.profile.filterGroupOne do
     local m1 = self.db.profile.filterGroupOne[i]
-    if self:StringSearch(lowMsg, m1) then
+    if self:StringSearch(msg, m1) then
       matchString = m1
       matchFilterOne = true
       break
@@ -404,8 +404,8 @@ function SCC:Filter(msg,player,flag,lineId,guid)
   local matchFilterTwo = filterTwoCount == 0
   for i=1, #self.db.profile.filterGroupTwo do
     local m2 = self.db.profile.filterGroupTwo[i]
-    if self:StringSearch(lowMsg, m2) then
-      matchString = matchString .. " & " .. m2
+    if self:StringSearch(msg, m2) then
+      matchString = (matchString == "" and "" or (matchString .. " & ")) .. m2
       matchFilterTwo = true
       break
     end
